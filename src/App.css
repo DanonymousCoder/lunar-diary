@@ -35,7 +35,7 @@ p {
   }
 }
 
-Link{
+.landing-btn{
   display: flex;
   align-items: center;
   gap: 1em;
@@ -48,8 +48,8 @@ Link{
   cursor: pointer;
 }
 
-Link:hover,
-Link:focus {
+.landing-btn:hover,
+.landing-btn:focus {
   background: transparent;
   color: #000000;
 }
