@@ -1,19 +1,20 @@
 import React from 'react';
 import {Moon, Sparkles} from 'lucide-react';
-import './App.css'
+import {Link} from 'react-router-dom';
+import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Dashboard from './dashboard';
 
 function LunarDiary() {
   return (
-    <div className='container'>
-
-        <main>
-          <Moon size={80} className='moon' />
-          <h1>Lunar Diary</h1>
-          <p>Your emotions, written in the star.</p>
-          <button>Enter Diary <Sparkles /></button>
-        </main>
-      
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route>
+          <Route index element={<LandingPage />} />
+          <Route path='dashboard' element={<Dashboard />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

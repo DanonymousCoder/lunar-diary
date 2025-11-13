@@ -7,16 +7,16 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2em;
+  gap: 1.5em;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #FFFFFF;
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #FFFFFF;
 }
 
@@ -31,18 +31,25 @@ p {
   }
 
   50% {
-    transform: translateY(-30px);
+    transform: translateY(-40px);
   }
 }
 
-button {
+Link{
   display: flex;
   align-items: center;
   gap: 1em;
   padding: 1.25rem 2rem;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   border-radius: 30px;
   border: none;
   background-color: #8a2be2;
   color: #FFFFFF;
+  cursor: pointer;
+}
+
+Link:hover,
+Link:focus {
+  background: transparent;
+  color: #000000;
 }
