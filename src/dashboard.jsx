@@ -83,13 +83,15 @@ function Dashboard() {
     )
 }
 
+/*
 function Navigation() {
     return (
         <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/blog' element={<BlogNavigation />} />
+            <Route path='/dashboard/' element={<Dashboard />} />
+            <Route path='/dashboard/blog/' element={<BlogNavigation />} />
         </Routes>
     );
 };
+*/
 
-export default Navigation;
+export default Dashboard;
