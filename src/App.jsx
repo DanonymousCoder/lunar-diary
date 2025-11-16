@@ -2,7 +2,7 @@ import React from 'react';
 import {Moon, Sparkles} from 'lucide-react';
 import './App.css';
 import { Link, Routes, Route } from 'react-router-dom';
-import Dashboard from './dashboard.jsx';
+import Navigation from './dashboard.jsx';
 
 
 function LandingPage() {
@@ -24,7 +24,7 @@ function LunarDiary() {
   return (
       <Routes>
           <Route path='/' element={<LandingPage />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard' element={<Navigation />} />
       </Routes>
   );
 }
