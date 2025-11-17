@@ -48,7 +48,7 @@ function Message() {
     return (
         <div className='container-blog'>
             <nav>
-                <Link to='/dashboard' className='back'>
+                <Link to='/dashboard' className='back'> 
                     <ArrowLeft /> Go back to dashboard
                 </Link>
                 <h1 className='msg-h1'>Your Thought</h1>
