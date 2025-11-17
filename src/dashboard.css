@@ -7,7 +7,7 @@
 }
 
 p {
-    font-size: 1rem;
+    font-size: .8rem;
 }
 
 nav {
@@ -129,18 +129,46 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.thought-box:hover {
+    transform: translateY(-5px);
+    border-color: #8a2be2;
+}
+
+.no-thoughts {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3em;
+    color: #999;
+    font-style: italic;
 }
 
 .thought-title {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .date {
     color: #F0F0F0;
+    font-size: .8rem;
+    text-decoration: none;
 }
 
 .thought {
     color: #F0F0F0;
     font-style: italic;
+    font-size: .8rem;
+    text-decoration: none;
+}
+
+.thought-body {
+    font-size: .8rem;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    text-decoration: none;
 }

@@ -4,11 +4,14 @@ import './index.css';
 
 import LunarDiary from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
+import { ThoughtsProvider } from './ThoughtsContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <LunarDiary />
+      <ThoughtsProvider>
+        <LunarDiary />
+      </ThoughtsProvider>
     </BrowserRouter>
   </StrictMode>,
 )

@@ -1,16 +1,37 @@
 import { useState } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { useThoughts } from './ThoughtsContext.jsx';
 import './blog.css';
 
 function Blog() {
 
     const [selectedMood, setSelectedMood] = useState(null);
-    const [messageValue, setMessageValue] = useState('');
+    const [message, setMessage] = useState('');
+    const { addThought } = useThoughts();
+    const navigate = useNavigate();
 
-    const addMessage = () => {
+    const moodNames = [
+        'New Moon',
+        'Waxing Crescent',
+        'First Quarter',
+        'Waxing Gibbous',
+        'Full Moon',
+        'Waning Gibbous',
+        'Last Quarter',
+        'Waning Crescent'
+    ];
 
-    };
+    const moodTypes = [
+        'Reflective',
+        'Hopeful',
+        'Determined',
+        'Excited',
+        'Energized',
+        'Grateful',
+        'Contemplation',
+        'Peaceful'
+    ];
 
     const quotes = [ 
         "In the darkness, we plant seeds of tomorrow's dreams.", 
@@ -23,6 +44,29 @@ function Blog() {
         "Rest now. Quiet moon holds their own gentle power."
     ];
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        if (selectedMood === null) {
+            alert('Please select a mood before saving!');
+            return;
+        }
+
+        if (!message.trim()) {
+            alert('Please write your thought before saving!');
+            return;
+        }
+
+        addThought({
+            mood: selectedMood,
+            moodName: moodNames[selectedMood],
+            moodType: moodTypes[selectedMood],
+            quote: quotes[selectedMood],
+            message: message.trim()
+        });
+
+        navigate('/dashboard');
+    };
 
     const MoodText = () => {
         if (selectedMood === null) {
@@ -53,42 +97,42 @@ function Blog() {
 
                 <div className='mood-boxes'>
                     <div className={`mood-box ${selectedMood == 0 ? 'selected' : ''}`} onClick={()  => setSelectedMood(0)}>
-                        <img src='../FullMoon2010.jpg' className='moon-img' />
+                        <img src='../FullMoon2010.png' className='moon-img' />
                         <p className='mood-title'>New moon</p>
                         <p className='mood'>Reflective</p>
                     </div>
                     <div className={`mood-box ${selectedMood == 1 ?  'selected' : ''}`} onClick={() => setSelectedMood(1)}>
-                        <img src='../FullMoon2010.jpg' className='moon-img' />
+                        <img src='../FullMoon2010.png' className='moon-img' />
                         <p className='mood-title'>Waxing Crescent</p>
                         <p className='mood'>Hopeful</p>
                     </div>
                     <div className={`mood-box ${selectedMood == 2 ? 'selected' : ''}`} onClick={() => setSelectedMood(2)}>
-                        <img src='../FullMoon2010' className='moon-img' />
+                        <img src='../FullMoon2010.png' className='moon-img' />
                         <p className='mood-title'>First Quarter</p>
                         <p className='mood'>Determined</p>
                     </div>
                     <div className={`mood-box ${selectedMood == 3 ? 'selected' : ''}`} onClick={() => setSelectedMood(3)}>
-                        <img src='../FullMoon2010.jpg' className='moon-img' />
+                        <img src='../FullMoon2010.png' className='moon-img' />
                         <p className='mood-title'>Waxing Gibbous</p>
                         <p className='mood'>Excited</p>
                     </div>
                     <div className={`mood-box ${selectedMood == 4 ? 'selected' : ''}`} onClick={() => setSelectedMood(4)}>
-                        <img src='../FullMoon2010.jpg' className='moon-img' />
+                        <img src='../FullMoon2010.png' className='moon-img' />
                         <p className='mood-title'>Full Moon</p>
                         <p className='mood'>Energized</p>
                     </div>
                     <div className={`mood-box ${selectedMood == 5 ? 'selected' : ''}`} onClick={() => setSelectedMood(5)}>
-                        <img src='../FullMoon2010.jpg' className='moon-img' />
+                        <img src='../FullMoon2010.png' className='moon-img' />
                         <p className='mood-title'>Waning Gibbous</p>
                         <p className='mood'>Grateful</p>
                     </div>
                     <div className={`mood-box ${selectedMood == 6 ? 'selected' : ''}`} onClick={() => setSelectedMood(6)}>
-                        <img src='../FullMoon2010.jpg' className='moon-img' />
+                        <img src='../FullMoon2010.png' className='moon-img' />
                         <p className='mood-title'>Last Quarter</p>
                         <p className='mood'>Contemplation</p>
                     </div>
                     <div className={`mood-box ${selectedMood == 7 ? 'selected' : ''}`} onClick={() => setSelectedMood(7)}>
-                        <img src='../FullMoon2010.jpg' className='moon-img' />
+                        <img src='../FullMoon2010.png' className='moon-img' />
                         <p className='mood-title'>Waning Crescent</p>
                         <p className='mood'>Peaceful</p>
                     </div>
@@ -96,16 +140,19 @@ function Blog() {
 
                 <MoodText />
 
-                <form action="#">
+                <form onSubmit={handleSubmit}>
                    <div className='text'>
                         <h3>Write your thought</h3>
-                        <textarea onChange={() => setMessageValue(value)}>
-
-                        </textarea>
+                        <textarea 
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            placeholder="Share your thoughts and feelings..."
+                            rows="6"
+                        />
                    </div>
 
                     <div className='form-submission'>
-                        <Link to='/dashboard' className='btn-submit' onClick={addMessage} >Save Thought</Link>
+                        <button type='submit' className='btn-submit'>Save Thought</button>
                         <Link to='/dashboard' className='btn-cancel'>Cancel</Link>
                     </div>
                 </form>
@@ -114,12 +161,4 @@ function Blog() {
     );
 };
 
-function BlogNavigation() {
-    return (
-        <Routes>
-            <Route path='/' element={<Blog />} />
-        </Routes>
-    );
-}
-
-export default BlogNavigation;
+export default Blog;
