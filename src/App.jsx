@@ -1,8 +1,9 @@
 import React from 'react';
 import {Moon, Sparkles} from 'lucide-react';
 import { Link, Routes, Route } from 'react-router-dom';
-import Navigation from './dashboard.jsx';
-import BlogNavigation from './blog.jsx';
+import Dashboard from './dashboard.jsx';
+import Blog from './blog.jsx';
+import './App.css';
 
 
 function LandingPage() {
@@ -24,8 +25,8 @@ function LunarDiary() {
   return (
       <Routes>
           <Route path='/' element={<LandingPage />} />
-          <Route path='/dashboard' element={<Navigation />} />
-          <Route path='/blog' element={<BlogNavigation />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/blog' element={<Blog />} />
       </Routes>
   );
 }

@@ -28,10 +28,10 @@ nav {
 
 .dash-moon {
     color: #000000;
-    animation: bounce 2s ease-in-out infinite;
+    animation: bounce2 2s ease-in-out infinite;
 }
 
-@keyframes bounce {
+@keyframes bounce2 {
     0%, 100% {
         transform: translateY(0);
     }
@@ -56,6 +56,10 @@ nav {
     background-color: #000000;
     padding: 1em 2em;
     color: #FFFFFF;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
 }
 
 main {

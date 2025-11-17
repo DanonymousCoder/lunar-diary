@@ -1,6 +1,6 @@
 import React from 'react';
-import { Moon, Calendar, BookOpen, Sparkles, Download } from 'lucide-react';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Moon, Calendar, BookOpen, Sparkles, Download, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import BlogNavigation from './blog.jsx';
 import './dashboard.css';
 
@@ -14,8 +14,8 @@ function Dashboard() {
                 </div>
 
                 <div className='nav-links'>
-                    <Link to='/blog' className='btn-thoughts'>Add thoughts</Link>
-                    <Link className='btn-export'>Export</Link>
+                    <Link to='/blog' className='btn-thoughts'><Plus /> Add thoughts</Link>
+                    <Link className='btn-export'><Download /> Export</Link>
                 </div>
             </nav>
 
@@ -53,29 +53,6 @@ function Dashboard() {
                         <p className='thought-body'>null</p>
                     </div>
 
-                    <div className='thought-box'>
-                        <img src='' />
-                        <p className='date'>null</p>
-                        <p className='thought-title'>null</p>
-                        <p className='thought'>null</p>
-                        <p className='thought-body'>null</p>
-                    </div>
-
-                    <div className='thought-box'>
-                        <img src='' />
-                        <p className='date'>null123</p>
-                        <p className='thought-title'>null123</p>
-                        <p className='thought'>null123</p>
-                        <p className='thought-body'>null123</p>
-                    </div>
-
-                    <div className='thought-box'>
-                        <img src='' />
-                        <p className='date'>null123</p>
-                        <p className='thought-title'>null123</p>
-                        <p className='thought'>null123</p>
-                        <p className='thought-body'>null123</p>
-                    </div>
                     </div>
                 </div>
             </main>
