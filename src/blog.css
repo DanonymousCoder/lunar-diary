@@ -1,5 +1,5 @@
 .container-blog {
-    background-color: #F0F0F0;
+    background: url('../public/space.png');
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,10 @@
 
 .container-blog h1 {
     color: #000000;
+}
+
+.container-blog .msg-h1 {
+  color: #FFFFFF;
 }
 
 .container-blog main {

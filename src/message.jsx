@@ -51,12 +51,12 @@ function Message() {
                 <Link to='/dashboard' className='back'>
                     <ArrowLeft /> Go back to dashboard
                 </Link>
-                <h1>Your Thought</h1>
+                <h1 className='msg-h1'>Your Thought</h1>
             </nav>
 
             <main className='message-detail'>
                 <div className='thought-header'>
-                    <img src='../FullMoon2010.jpg' className='moon-img-large' alt={thought.moodName} />
+                    <img src='../FullMoon2010.png' className='moon-img-large' alt={thought.moodName} />
                     <div className='thought-info'>
                         <h2>{thought.moodName}</h2>
                         <p className='mood-type'>{thought.moodType}</p>

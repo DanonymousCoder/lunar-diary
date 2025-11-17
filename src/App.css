@@ -1,5 +1,5 @@
 .container {
-  background: linear-gradient(rgb(26, 1, 26), purple, rgb(26, 1, 26));
+  background: url('../public/bg.jpg');
 }
 
 main {
@@ -43,7 +43,7 @@ p {
   font-size: 1.5rem;
   border-radius: 30px;
   border: none;
-  background-color: #8a2be2;
+  background: #8a2be2;
   color: #FFFFFF;
   cursor: pointer;
   text-decoration: none;
@@ -52,5 +52,4 @@ p {
 .landing-btn:hover,
 .landing-btn:focus {
   background: transparent;
-  color: #000000;
 }
